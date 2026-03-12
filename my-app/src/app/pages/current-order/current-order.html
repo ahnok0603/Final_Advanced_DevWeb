@@ -1,0 +1,49 @@
+<div class="cart-container">
+  <h2>Your Current Order</h2>
+
+  <div *ngIf="cartItems.length === 0" class="empty-cart">
+    Your cart is empty. <a routerLink="/products">Go back to Products</a> to add items.
+  </div>
+
+  <div *ngIf="cartItems.length > 0">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>
+            <div class="product-info">
+              <img [src]="item.product.image || 'https://placehold.co/50x50'" alt="">
+              <span>{{ item.product.name }}</span>
+            </div>
+          </td>
+          <td>${{ item.product.price }}</td>
+          <td>
+            <input type="number" [value]="item.quantity" min="1" #qtyInput (change)="updateQuantity(item.product._id, qtyInput.value)">
+          </td>
+          <td>${{ item.product.price * item.quantity }}</td>
+          <td>
+            <button class="remove-btn" (click)="removeItem(item.product._id)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cart-summary">
+      <div class="total-price">
+        Total: <strong>${{ total }}</strong>
+      </div>
+      <div class="actions">
+        <button class="buy-more" routerLink="/products">Buy More Products</button>
+        <button class="checkout-btn" (click)="checkout()">Process Payment</button>
+      </div>
+    </div>
+  </div>
+</div>

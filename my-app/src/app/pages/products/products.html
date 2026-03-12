@@ -1,0 +1,37 @@
+<div class="products-container">
+  <h2>Our Products</h2>
+  
+  <div class="filters">
+    <div class="filter-group">
+      <label>Max Price:</label>
+      <input type="number" [(ngModel)]="maxPrice" placeholder="Enter max price...">
+      <button (click)="onSearchPrice()">Search by Price</button>
+    </div>
+
+    <div class="filter-group">
+      <label>Category:</label>
+      <select [(ngModel)]="selectedCategoryId" (change)="onSearchCategory()">
+        <option value="">All Categories</option>
+        <option *ngFor="let cat of categories" [value]="cat._id">{{ cat.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="product-card" *ngFor="let p of products">
+      <img [src]="p.image || 'https://placehold.co/200x200'" alt="{{p.name}}">
+      <div class="card-content">
+        <h3>{{ p.name }}</h3>
+        <p class="model">Model: {{ p.model }} | By: {{ p.madeBy }}</p>
+        <p class="price">${{ p.price }}</p>
+        
+        <div class="buy-section">
+          <input type="number" value="1" min="1" #qtyInput class="qty-input">
+          <button (click)="addToCart(p, qtyInput.value)" class="buy-btn">
+            BUY <i class="fa fa-shopping-cart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

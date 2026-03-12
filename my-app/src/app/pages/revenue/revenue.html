@@ -1,0 +1,40 @@
+<div class="revenue-container">
+  <h2>Revenue Statistics</h2>
+
+  <div *ngIf="!isEmployee" class="unauthorized">
+    <div class="lock-icon">🔒</div>
+    <h3>Access Restricted</h3>
+    <p>Only logged-in employees can view this page.</p>
+  </div>
+
+  <div *ngIf="isEmployee" class="stats-board">
+    <div class="summary-card">
+      <h3>Total Revenue (All Time)</h3>
+      <div class="big-number">${{ overallTotal }}</div>
+    </div>
+
+    <h3>Revenue by Month & Year</h3>
+    <table class="revenue-table">
+      <thead>
+        <tr>
+          <th>Year</th>
+          <th>Month</th>
+          <th>Orders Count</th>
+          <th>Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stat of revenueData">
+          <td>{{ stat._id.year }}</td>
+          <td>{{ stat._id.month }}</td>
+          <td>{{ stat.orderCount }}</td>
+          <td class="money">${{ stat.totalRevenue }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div *ngIf="revenueData.length === 0" class="no-data">
+      No completed orders yet.
+    </div>
+  </div>
+</div>

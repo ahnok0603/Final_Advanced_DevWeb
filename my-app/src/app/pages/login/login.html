@@ -1,0 +1,19 @@
+<div class="login-container">
+  
+  <div *ngIf="!currentUser" class="login-form">
+    <select [(ngModel)]="role">
+      <option value="customer">Customer</option>
+      <option value="employee">Employee</option>
+    </select>
+    <input type="email" [(ngModel)]="email" placeholder="Email">
+    <input type="password" [(ngModel)]="password" placeholder="Password">
+    <button (click)="onLogin()">Login</button>
+    <span *ngIf="loginError" class="error">{{ loginError }}</span>
+  </div>
+
+  <div *ngIf="currentUser" class="welcome-box">
+    Welcome <span class="username" (click)="onLogout()">{{ currentUser.name }}</span>!
+    <small>(Click name to logout)</small>
+  </div>
+
+</div>

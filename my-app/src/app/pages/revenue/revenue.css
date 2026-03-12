@@ -1,0 +1,74 @@
+.revenue-container {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+h2 {
+  color: #2c3e50;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 10px;
+}
+
+.unauthorized {
+  text-align: center;
+  padding: 50px 20px;
+  color: #e74c3c;
+}
+
+.lock-icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+.stats-board {
+  margin-top: 20px;
+}
+
+.summary-card {
+  background: #34495e;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.summary-card h3 {
+  margin: 0 0 10px;
+  color: #bdc3c7;
+}
+
+.big-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #f1c40f;
+}
+
+.revenue-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.revenue-table th, .revenue-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.revenue-table th {
+  background-color: #f8f9fa;
+  color: #34495e;
+}
+
+.money {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.no-data {
+  padding: 20px;
+  text-align: center;
+  color: #7f8c8d;
+}
